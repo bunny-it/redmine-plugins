@@ -1,4 +1,0 @@
-api.category do
-  api.id @category.id
-  api.name @category.name
-end

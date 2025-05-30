@@ -1,0 +1,34 @@
+<table id="saved-items" class="list">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th><%= l(:field_deal_name) %></th>
+    <th><%= l(:field_deal_background) %></th>
+    <th><%= l(:field_currency) %></th>
+    <th><%= l(:field_deal_price) %></th>
+    <th><%= l(:label_crm_probability) %></th>
+    <th><%= l(:label_crm_stage) %></th>
+    <th><%= l(:field_contact) %></th>
+    <th><%= l(:label_crm_status) %></th>
+    <th><%= l(:label_crm_assigned_to) %></th>
+    <th><%= l(:field_category) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% saved_objects.each do |deal| %>
+  <tr>
+    <td id="contact-<%= deal.id %>"><%= link_to deal.id, deal_path(deal) %></td>
+    <td><%= link_to deal.name, deal_path(deal) %></td> 
+    <td><%= deal.background_name %></td>
+    <td><%= deal.currency_name %></td>
+    <td><%= deal.price %></td>
+    <td><%= deal.probability %></td>
+    <td><%= deal.stage_name %></td>
+    <td><%= deal.contact_name %></td>
+    <td><%= deal.status_name %></td>
+    <td><%= deal.assigned_to_name %></td>
+    <td><%= deal.category_name %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

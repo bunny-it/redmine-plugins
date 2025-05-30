@@ -1,0 +1,1 @@
+require_relative 'redmine_journal_updated_date/hooks/journal_hooks' 

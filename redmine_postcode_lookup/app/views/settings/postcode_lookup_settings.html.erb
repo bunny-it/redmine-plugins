@@ -1,0 +1,7 @@
+<%= form_for :settings, url: settings_path(plugin: 'redmine_postcode_lookup') do |f| %>
+  <fieldset class="box">
+    <legend><%= l(:label_postcode_lookup_settings) %></legend>
+    <p><%= l(:label_postcode_lookup_description) %></p>
+    <p><%= f.submit l(:button_save) %></p>
+  </fieldset>
+<% end %>

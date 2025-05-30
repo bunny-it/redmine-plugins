@@ -1,0 +1,32 @@
+de:
+  # Original: Tracker, UFS: Leistungsart
+  field_tracker: Leistungsart
+  label_display_used_statuses_only: Zeige nur Status an, die von dieser Leistungsart verwendet werden
+  label_tracker: Leistungsart
+  label_tracker_new: Neuer Tracker
+  label_tracker_plural: Leistungsarten
+  label_tracker_all: Alle Leistungsarten
+  label_trackers_description: Beschreibung der Leistungsart
+  label_open_trackers_description: Beschreibung aller Leistungsarten anzeigen
+  text_select_apply_tracker: Leistungsart wählen
+
+  # Original: Thema, UFS: Betreff
+  field_subject: Betreff
+  field_parent_issue_subject: Betreff des übergeordneten Tickets
+  text_no_subject: kein Betreff
+
+  # Original: Abgabedatum
+  field_due_date: Frist
+
+  # Swiss address format
+  label_crm_region: Kanton
+  label_crm_postcode: PLZ
+
+  # Original: Unternehmen
+  label_crm_company: Organisation
+  field_contact_is_company: Organisation
+  field_contact_company: Organisation
+  field_company: Organisation
+  field_company_name: Organisation
+  field_companies: Organisation
+  field_is_company: Ist Organisation 

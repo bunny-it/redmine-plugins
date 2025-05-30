@@ -1,0 +1,10 @@
+<%=
+  link_to l(:label_issue_new), new_project_issue_path(@project, :issue => {
+    :custom_field_values => {
+      :'3' => @contact.id,
+      :'5' => @contact.postcode,
+      :'6' => @contact.city,
+      :'7' => @contact.region,
+    }
+  }), :class => 'icon icon-add new-issue'
+%> 

@@ -11,12 +11,28 @@ module RedmineContactValidation
         
         javascript_tag <<-JS
           $(document).ready(function() {
-            // Add required indicator to Nachname field
-            var nachnameLabel = $('label[for="contact_last_name"]');
-            if (nachnameLabel.length > 0 && !nachnameLabel.find('.required').length) {
-              nachnameLabel.append('<span class="required"> *</span>');
-              $('#contact_last_name').attr('required', true);
+            
+            // Function to update last name field requirements based on company status
+            function updateLastNameRequirement() {
+              var isCompany = $('#contact_is_company').is(':checked');
+              var nachnameField = $('#contact_last_name');
+              var nachnameLabel = $('label[for="contact_last_name"]');
+              
+              if (!isCompany) {
+                // Person mode - make last name required
+                if (nachnameLabel.length > 0 && !nachnameLabel.find('.required').length) {
+                  nachnameLabel.append('<span class="required"> *</span>');
+                }
+                nachnameField.attr('required', true);
+              } else {
+                // Company mode - remove last name requirement
+                nachnameLabel.find('.required').remove();
+                nachnameField.removeAttr('required');
+              }
             }
+            
+            // Initial setup
+            updateLastNameRequirement();
             
             // Add required indicator to PLZ field
             var plzField = $('#contact_address_attributes_postcode');
@@ -72,14 +88,16 @@ module RedmineContactValidation
               window.togglePerson = function(element) {
                 originalTogglePerson(element);
                 
-                // Re-add required indicators after toggle
+                // Update last name requirements after toggle
                 setTimeout(function() {
-                  var nachnameLabel = $('label[for="contact_last_name"]');
-                  if (nachnameLabel.length > 0 && !nachnameLabel.find('.required').length) {
-                    nachnameLabel.append('<span class="required"> *</span>');
-                  }
+                  updateLastNameRequirement();
                 }, 100);
               };
+            } else {
+              // If togglePerson doesn't exist, create our own handler for the checkbox
+              $('#contact_is_company').on('change', function() {
+                updateLastNameRequirement();
+              });
             }
           });
         JS

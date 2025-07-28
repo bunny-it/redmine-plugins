@@ -6,7 +6,8 @@ Contact.class_eval do
 
   def validate_contact_required_fields
     # Nachname (last_name) - built-in field
-    if last_name.blank?
+    # Only validate last_name for people, not for companies
+    if !is_company && last_name.blank?
       errors.add(:last_name, "darf nicht leer sein")
     end
     
